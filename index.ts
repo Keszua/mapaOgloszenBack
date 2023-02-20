@@ -1,9 +1,10 @@
 import express, { json } from "express"
 import cors from 'cors';
 import 'express-async-errors';
-import { handleError, ValidationError } from "./utils/errors";
+import { handleError } from "./utils/errors";
 import "./utils/db";
 import rateLimit from 'express-rate-limit'
+import { adRouter } from "./routers/ad.router";
 
 const app = express();
 
@@ -21,9 +22,7 @@ app.use(rateLimit({
 }))
 
 // Routes...
-app.get('/', (req, res) => {
-    throw new ValidationError('Dadam!');
-});
+app.use('/ad', adRouter);
 
 app.use(handleError);
 
