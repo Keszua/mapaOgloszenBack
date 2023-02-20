@@ -26,4 +26,47 @@ test('Validates invalid price', () => {
 
 });
 
-//@TODO: Check all the validations
+test('Validates invalid name', () => {
+    expect(() => new AdRecord({
+        ...defaultObj, 
+        name: '',
+    })).toThrow('Nazwa ogłoszenia nie może być pusta, ani przekraczać 100 znaków');
+    
+    expect(() => new AdRecord({
+        ...defaultObj,
+        name: 'a'.repeat(101), 
+    })).toThrow('Nazwa ogłoszenia nie może być pusta, ani przekraczać 100 znaków');
+});
+  
+test('Validates invalid description', () => {
+    expect(() => new AdRecord({
+        ...defaultObj, 
+        description: 'a'.repeat(1001),
+    })).toThrow('Treść ogłoszenia nie moze być większa niż 1000 znaków');
+});
+
+test('Validates invalid url', () => {
+    expect(() => new AdRecord({
+        ...defaultObj, 
+        url: '' 
+    })).toThrow('Adres ogłoszenia nie może być pusty ani przekraczać 100 znaków');
+    
+    expect(() => new AdRecord({
+        ...defaultObj,
+        url: 'a'.repeat(101),
+    })).toThrow('Adres ogłoszenia nie może być pusty ani przekraczać 100 znaków');
+  });
+
+  test('Validates invalid lat/lon', () => {
+    expect(() => new AdRecord({ 
+        ...defaultObj, 
+        lat: 'a' as never,
+        lon: 9,
+    })).toThrow('Nie można zlokalizować ogłoszenia');
+
+    expect(() => new AdRecord({
+        ...defaultObj,
+        lat: 9,
+        lon: 'a' as never,
+    })).toThrow('Nie można zlokalizować ogłoszenia');
+  });
