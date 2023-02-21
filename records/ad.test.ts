@@ -2,7 +2,9 @@ import { AdEntity } from "../types";
 import { pool } from "../utils/db";
 import { AdRecord } from "./ad.record"
 
+
 afterAll( async () => {
+    await pool.execute("DELETE FROM megak_ads.ads WHERE `name`= '[Test--123]';")
     await pool.end();
 });
 

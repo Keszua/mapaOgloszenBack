@@ -84,3 +84,18 @@ export class AdRecord implements AdEntity {
     };
 
 }
+
+/*
+CREATE TABLE `ads` (
+	`id` VARCHAR(36) NOT NULL,
+	`name` VARCHAR(100) NOT NULL,
+	`description` VARCHAR(1000) NOT NULL,
+	`price` DECIMAL(9,2) NOT NULL,
+	`url` VARCHAR(100) NOT NULL,
+	`lat` DECIMAL(10,7) NOT NULL,
+	`lon` DECIMAL(10,7) NOT NULL
+)
+COLLATE='utf8mb4_unicode_ci';
+
+
+*/
