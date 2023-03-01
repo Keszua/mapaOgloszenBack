@@ -9,5 +9,6 @@ export const config = {
 	dbPassword: 'you_pass',
 	dbDatabase: 'you_database_name',
 	prefixPath: '', // path to folder in you server 
+	corsOrigin: 'http://localhost:3000',
 };
 */

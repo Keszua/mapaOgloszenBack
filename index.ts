@@ -10,7 +10,7 @@ import { config } from "./config/config";
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: config.corsOrigin,
 }));
 
 app.use(json());
@@ -33,5 +33,5 @@ app.use(handleError);
 
 const port = 3001;
 app.listen(port, '0.0.0.0', () => {  
-    console.log(`Server is listening at http://localhost:${port}`); 
+    console.log(`Server is listening at ${config.corsOrigin}:${port}`); 
 });
