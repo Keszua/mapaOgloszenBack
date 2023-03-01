@@ -8,5 +8,6 @@ export const config = {
 	dbUser: 'you_name',
 	dbPassword: 'you_pass',
 	dbDatabase: 'you_database_name',
+	prefixPath: '', // path to folder in you server 
 };
 */
